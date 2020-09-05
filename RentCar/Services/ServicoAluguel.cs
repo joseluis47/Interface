@@ -10,6 +10,7 @@ namespace RentCar.Services
         public double PrecoHora { get; set; }
         public double PrecoDia { get; set; }
         public Itax Itax { get; set; }
+        
 
         public ServicoAluguel(double precoHora, double precoDia, Itax itax)
         {
@@ -28,9 +29,14 @@ namespace RentCar.Services
            
 
            
-            double valor = Itax.Tax(PrecoHora, PrecoDia, duracao);
-            Console.WriteLine(valor);
-           
+            double valor = Itax.Valor(PrecoHora, PrecoDia, duracao);
+            double taxa = Itax.Tax(valor);
+            Pagamento pagamento = new Pagamento(valor,taxa);
+            Console.WriteLine(pagamento.Imprimir());
+            
+
+
+
         }
     }
 }

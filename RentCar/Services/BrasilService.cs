@@ -6,7 +6,7 @@ namespace RentCar.Services
 {
     class BrasilService: Itax
     {
-       public double Tax(double PrecoHora, double PrecoDia, TimeSpan duracao)
+       public double Valor(double PrecoHora, double PrecoDia, TimeSpan duracao)
         {
 
             if (duracao.TotalHours < 12)
@@ -17,6 +17,17 @@ namespace RentCar.Services
                 return Math.Ceiling(duracao.TotalDays) * PrecoDia;
             }
 
+        }
+
+        public double Tax(double Valor)
+        {
+            if (Valor<100)
+            {
+                return Valor * 0.20;
+            } else
+            {
+                return Valor * 0.15;
+            }
         }
     }
 }

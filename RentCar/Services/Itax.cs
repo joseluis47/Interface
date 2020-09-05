@@ -6,6 +6,7 @@ namespace RentCar.Services
 {
     interface Itax
     {
-        double Tax(double PrecoHora, double PrecoDia, TimeSpan duracao);
+        double Valor(double PrecoHora, double PrecoDia, TimeSpan duracao);
+        double Tax(double Valor);
     }
 }
