@@ -21,5 +21,16 @@ namespace RentCar.Services
         public ServicoAluguel()
         {
         }
+
+        public void TotalValor (Aluguel aluguel)
+        {
+            TimeSpan duracao = aluguel.Final.Subtract(aluguel.Inicial);
+           
+
+           
+            double valor = Itax.Tax(PrecoHora, PrecoDia, duracao);
+            Console.WriteLine(valor);
+           
+        }
     }
 }
